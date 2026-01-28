@@ -1,0 +1,417 @@
+body {
+  margin: 0;
+
+  background: #f4f6f9;
+}
+
+
+.admin-layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #1e1e2f;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+ 
+
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+.sidebar li:hover {
+  background: #2d2d44;
+}
+
+.dropdown-li {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+}
+
+.dropdown-toggle-custom {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  padding: 0;
+  font-size: 16px;
+  margin-left: 30px;
+  position: relative;
+  left: -20px;
+}
+
+.dropdown-menu {
+  background-color: #2e2e42;
+
+  margin-left: 20px;
+
+}
+
+.dropdown-menu .dropdown-item {
+  color: #fff;
+  font-size: small
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #3a3a55;
+}
+
+.header {
+  margin-left: 240px;
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.header h3 {
+  background: #4caf50;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.add-btn:hover {
+  background: #45a049;
+}
+
+
+
+
+.edit-btn {
+  background: #2196f3;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #0b7dda;
+}
+
+/* product component */
+
+.table-area {
+  margin-left: 240px;
+  padding: 30px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Users component */
+.users-container {
+  display: flex;
+  margin-left: 25%;
+  margin-top: 30px;
+}
+
+.btn-users {
+  border: none;
+  background-color: #1f84a3;
+  color: white;
+  padding: 10px;
+  border-radius: 7px;
+  margin-left: 70%;
+
+}
+
+.btn-users:hover {
+  background-color: #218332;
+
+}
+
+.add-users {
+  border: 2px solid #c5dbee;
+  width: 70%;
+  padding: 20px;
+  margin-top: 100px;
+  margin-left: 23%;
+  background-color: #c5dbee;
+  border-radius: 10px;
+  box-shadow: 5px 10px 15px;
+}
+
+.add-users input ,section {
+  width: 100%;
+  margin-top: 20px;
+  padding: 9px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+}
+
+.add-users button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #0b7dda;
+  color: white;
+}
+
+/* user table */
+/* Container alignment */
+.table-container {
+  margin-left: 20%;
+  margin-top: 30px;
+}
+
+/* Table styling */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+}
+
+/* Header styling */
+table thead th {
+  background-color: #66baeb;
+  color: rgb(255, 255, 255);
+  padding: 10px 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table tbody td {
+  border: 1px solid #f7efef;
+  padding: 8px;
+    text-align: center;
+}
+
+
+td button {
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+button:nth-child(1) {
+  background-color: #2196F3;
+  color: white;
+}
+
+
+
+
+/* Products */
+
+/* Product Input Form */
+.product-input {
+  margin: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  width: 70%;
+  margin-left: 22%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-input input,
+.product-input select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.product-input button {
+  padding: 12px 20px;
+  background-color: #66baeb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.product-input button:hover {
+  background-color: #4099c6;
+}
+
+/* Table Styles */
+.table-responsive {
+  margin-top: 20px;
+  overflow-x: auto;
+  width: 75%;
+  margin-left: 20%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.table th, .table td {
+  padding: 15px 20px;
+  text-align:center;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #66baeb;
+  color: white;
+}
+
+.table td {
+  font-size: 14px;
+}
+
+.table td img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.table td button {
+  padding: 6px 12px;
+  background-color: #66baeb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.table td button:hover {
+  background-color: #4099c6;
+}
+
+.table td button:nth-child(2) {
+  background-color: #FF3838;
+}
+
+.table td button:nth-child(2):hover {
+  background-color: #e02d2d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-input {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .product-input input,
+  .product-input button,
+  .product-input select {
+    font-size: 12px;
+  }
+
+  .table th, .table td {
+    padding: 8px 10px;
+  }
+
+  .table td img {
+    width: 80px;
+    height: 60px;
+  }
+}
+
+
+/* category  */
+.category-container {
+  width: 40%;
+  margin-left: 40%;
+  margin-top: 40px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.category-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.category-container select,
+.category-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.category-container select:focus,
+.category-container input:focus {
+  border-color: #6cddec;
+  outline: none;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4c90af;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #308eb3;
+}
