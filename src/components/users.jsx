@@ -78,7 +78,7 @@ const Users = () => {
     });
   };
 
-  
+
   const getUsers = async () => {
     try {
       const response = await axios.get("http://localhost:5100/admin/users");

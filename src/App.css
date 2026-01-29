@@ -1,417 +1,425 @@
+/* =========================================
+   1. VARIABLES & RESET (LIGHT THEME)
+   ========================================= */
+:root {
+  /* Core Palette - Light Theme */
+  --bg-body: #f1f5f9;
+  /* Slate 100 - Main Background */
+  --bg-surface: #ffffff;
+  /* White - Cards/Sidebar */
+  --text-primary: #0f172a;
+  /* Slate 900 */
+  --text-secondary: #64748b;
+  /* Slate 500 */
+  --border-color: #e2e8f0;
+  /* Slate 200 */
+
+  /* Brand / Accents */
+  --brand-primary: #2563eb;
+  /* Blue 600 */
+  --brand-hover: #1d4ed8;
+  /* Blue 700 */
+  --accent-success: #10b981;
+  --accent-danger: #ef4444;
+  --accent-warning: #f59e0b;
+
+  /* Dimensions & Spacing */
+  --sidebar-width: 260px;
+  --header-height: 70px;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+
+  /* Shadows - Critical for "Professional" feel */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
 body {
   margin: 0;
-
-  background: #f4f6f9;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
 }
 
-
-.admin-layout {
-  display: flex;
-}
-
-.sidebar {
-  width: 240px;
-  height: 100vh;
-  background: #1e1e2f;
-  color: #fff;
-  padding: 20px;
+* {
   box-sizing: border-box;
-  position: fixed;
-  left: 0px;
-  top: 0px;
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: bold;
- 
-
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.sidebar ul {
+ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.sidebar li {
-  margin: 15px 0;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-
-}
-
-.sidebar li:hover {
-  background: #2d2d44;
-}
-
-.dropdown-li {
+/* =========================================
+   2. SIDEBAR
+   ========================================= */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--bg-surface);
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 24px 16px;
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  align-items: start;
-
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
 }
 
-.dropdown-toggle-custom {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  color: #fff !important;
-  padding: 0;
-  font-size: 16px;
-  margin-left: 30px;
-  position: relative;
-  left: -20px;
-}
-
-.dropdown-menu {
-  background-color: #2e2e42;
-
-  margin-left: 20px;
-
-}
-
-.dropdown-menu .dropdown-item {
-  color: #fff;
-  font-size: small
-}
-
-.dropdown-menu .dropdown-item:hover {
-  background-color: #3a3a55;
-}
-
-.header {
-  margin-left: 240px;
-  height: 70px;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+/* Logo Area */
+.sidebar h2 {
+  color: var(--brand-primary);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 40px 12px;
+  letter-spacing: -0.5px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 25px;
-  box-sizing: border-box;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  gap: 10px;
 }
 
-.header h1 {
-  font-size: 24px;
-  color: #333;
+.sidebar-menu {
+  flex: 1;
 }
 
-.header h3 {
-  background: #4caf50;
-  color: #fff;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
+.sidebar-menu li {
+  padding: 12px 16px;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-weight: 500;
-}
-
-.add-btn:hover {
-  background: #45a049;
-}
-
-
-
-
-.edit-btn {
-  background: #2196f3;
-  color: #fff;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.edit-btn:hover {
-  background: #0b7dda;
-}
-
-/* product component */
-
-.table-area {
-  margin-left: 240px;
-  padding: 30px;
-  margin-top: 20px;
-  box-sizing: border-box;
-}
-
-/* Users component */
-.users-container {
+  transition: all 0.2s ease;
   display: flex;
-  margin-left: 25%;
-  margin-top: 30px;
+  align-items: center;
 }
 
-.btn-users {
-  border: none;
-  background-color: #1f84a3;
-  color: white;
-  padding: 10px;
-  border-radius: 7px;
-  margin-left: 70%;
-
+.sidebar-menu li:hover {
+  background-color: var(--bg-body);
+  color: var(--brand-primary);
 }
 
-.btn-users:hover {
-  background-color: #218332;
-
+.sidebar-menu li.active {
+  background-color: #eff6ff;
+  /* Blue 50 */
+  color: var(--brand-primary);
 }
 
-.add-users {
-  border: 2px solid #c5dbee;
-  width: 70%;
-  padding: 20px;
-  margin-top: 100px;
-  margin-left: 23%;
-  background-color: #c5dbee;
-  border-radius: 10px;
-  box-shadow: 5px 10px 15px;
-}
-
-.add-users input ,section {
-  width: 100%;
-  margin-top: 20px;
-  padding: 9px;
-  border-radius: 5px;
-  text-decoration: none;
-  border: none;
-}
-
-.add-users button {
-  width: 100%;
-  margin-top: 15px;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: #0b7dda;
-  color: white;
-}
-
-/* user table */
-/* Container alignment */
-.table-container {
-  margin-left: 20%;
-  margin-top: 30px;
-}
-
-/* Table styling */
-table {
-  width: 80%;
-  border-collapse: collapse;
-  background: #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
-}
-
-/* Header styling */
-table thead th {
-  background-color: #66baeb;
-  color: rgb(255, 255, 255);
-  padding: 10px 8px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-table tbody td {
-  border: 1px solid #f7efef;
-  padding: 8px;
-    text-align: center;
-}
-
-
-td button {
-  padding: 6px 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 13px;
-}
-
-button:hover {
+.sidebar-menu li svg {
+  margin-right: 12px;
+  font-size: 1.25rem;
   opacity: 0.8;
 }
 
-
-button:nth-child(1) {
-  background-color: #2196F3;
-  color: white;
-}
-
-
-
-
-/* Products */
-
-/* Product Input Form */
-.product-input {
-  margin: 20px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  width: 70%;
-  margin-left: 22%;
+/* =========================================
+   3. HEADER
+   ========================================= */
+.header {
+  height: var(--header-height);
+  background-color: var(--bg-surface);
+  margin-left: var(--sidebar-width);
+  padding: 0 40px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-between;
+  /* Adjusted for better spacing */
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 900;
 }
 
-.product-input input,
-.product-input select {
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 100%;
+/* Breadcrumb or Page Title Placeholder */
+.header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.product-input button {
-  padding: 12px 20px;
-  background-color: #66baeb;
-  color: white;
-  border: none;
-  border-radius: 5px;
+/* Admin Profile / Actions */
+.header h3.add-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.product-input button:hover {
-  background-color: #4099c6;
+.header h3.add-btn:hover {
+  background-color: var(--bg-body);
 }
 
-/* Table Styles */
+/* =========================================
+   4. LAYOUT CONTAINERS
+   ========================================= */
+.main-content,
+.users-container,
+.category-container,
+.product-input,
+.add-users,
 .table-responsive {
-  margin-top: 20px;
-  overflow-x: auto;
-  width: 75%;
-  margin-left: 20%;
+  margin-left: var(--sidebar-width);
+  /* CRITICAL for layout */
+  padding: 32px 40px;
+  min-height: calc(100vh - var(--header-height));
 }
 
-.table {
+/* Action Bar (Search + Add Button) */
+.users-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  /* Reset */
+  padding-bottom: 0;
+  min-height: auto;
+}
+
+/* =========================================
+   5. CARDS (Dashboard)
+   ========================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.dashboard-card {
+  background: var(--bg-surface);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-card .info h3 {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.dashboard-card .info h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* =========================================
+   6. TABLES - PROFESSIONAL LOOK
+   ========================================= */
+table {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-top: 20px;
 }
 
-.table th, .table td {
-  padding: 15px 20px;
-  text-align:center;
-  border: 1px solid #ddd;
+thead {
+  background-color: #f8fafc;
+  /* Slate 50 */
 }
 
-.table th {
-  background-color: #66baeb;
-  color: white;
+thead th {
+  padding: 16px 24px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary) !important;
+  /* Force override manual styles */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+  background: transparent !important;
+  /* Override inline styles */
 }
 
-.table td {
-  font-size: 14px;
+tbody td {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  vertical-align: middle;
 }
 
-.table td img {
-  width: 100px;
-  height: 70px;
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+table img {
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  width: 40px;
+  height: 40px;
   object-fit: cover;
 }
 
-.table td button {
-  padding: 6px 12px;
-  background-color: #66baeb;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* =========================================
+   7. PRO FORMS
+   ========================================= */
+form {
+  background: var(--bg-surface);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.table td button:hover {
-  background-color: #4099c6;
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: -16px;
 }
 
-.table td button:nth-child(2) {
-  background-color: #FF3838;
-}
-
-.table td button:nth-child(2):hover {
-  background-color: #e02d2d;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .product-input {
-    margin: 10px;
-    padding: 15px;
-  }
-
-  .product-input input,
-  .product-input button,
-  .product-input select {
-    font-size: 12px;
-  }
-
-  .table th, .table td {
-    padding: 8px 10px;
-  }
-
-  .table td img {
-    width: 80px;
-    height: 60px;
-  }
-}
-
-
-/* category  */
-.category-container {
-  width: 40%;
-  margin-left: 40%;
-  margin-top: 40px;
-  padding: 20px;
-  background: #ffffff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-}
-
-.category-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.category-container select,
-.category-container input {
+input,
+select,
+textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-}
-
-.category-container select:focus,
-.category-container input:focus {
-  border-color: #6cddec;
+  padding: 10px 14px;
+  /* Reduced padding */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: white;
+  font-size: 0.9rem;
+  /* Slightly smaller font */
+  color: var(--text-primary);
+  transition: all 0.2s;
   outline: none;
 }
 
-.add-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #4c90af;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+/* Specific Search Bar Styling */
+.users-container input[type="search"] {
+  max-width: 300px;
+  /* Reduced width */
+  padding: 8px 16px;
+  border-radius: 99px;
+  /* Pill shape for search */
+  background-color: #f1f5f9;
+  border: 1px solid transparent;
 }
 
-.add-btn:hover {
-  background-color: #308eb3;
+.users-container input[type="search"]:focus {
+  background-color: white;
+  border-color: var(--brand-primary);
+  width: 320px;
+  /* Slight expansion on focus */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+input[type="file"] {
+  padding: 10px;
+}
+
+/* =========================================
+   8. BUTTONS
+   ========================================= */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  /* Slightly reduced padding */
+  border-radius: 6px;
+  /* Slightly tighter radius */
+  font-weight: 600;
+  font-size: 0.85rem;
+  /* More compact font */
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  gap: 8px;
+}
+
+/* Primary Button (Add New, Submit) */
+.btn-users,
+.add-btn,
+button[type="submit"] {
+  background-color: var(--brand-primary) !important;
+  color: white !important;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+.btn-users:hover,
+button[type="submit"]:hover {
+  background-color: var(--brand-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+}
+
+/* Destructive Button */
+button.delete-btn,
+button[style*="red"],
+button[style*="#fa1837ff"] {
+  background-color: #fef2f2 !important;
+  color: var(--accent-danger) !important;
+  border: 1px solid #fecaca !important;
+  box-shadow: none !important;
+}
+
+button.delete-btn:hover {
+  background-color: var(--accent-danger) !important;
+  color: white !important;
+}
+
+/* Neutral/Edit Button */
+button.edit-btn,
+button:not([class]):not([type=submit]) {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+button.edit-btn:hover {
+  background-color: #f8fafc;
+  border-color: var(--text-secondary);
 }

@@ -9,6 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
 import Users from "./users";
 import { TbCategoryPlus } from "react-icons/tb";
+import "./Sidebar.css";
 
 const Sidebar = () => {
     const iconStyle = { marginRight: "10px" };
@@ -24,15 +25,15 @@ const Sidebar = () => {
                 <li  >
                     <RxDashboard style={iconStyle} /> Dashboard
                 </li>
-                <li onClick={()=>navigate("/admin/category")}><TbCategoryPlus style={iconStyle}/>Category</li>
+                <li onClick={() => navigate("/admin/category")}><TbCategoryPlus style={iconStyle} />Category</li>
 
-                <li onClick={()=>navigate("/admin/product")}> <MdOutlineProductionQuantityLimits style={{ marginRight: "5px" }} />
+                <li onClick={() => navigate("/admin/product")}> <MdOutlineProductionQuantityLimits style={{ marginRight: "5px" }} />
 
                     Product
                 </li>
 
                 <li onClick={() => navigate("/admin/order")}>
-                    <MdBorderColor  style={iconStyle} /> Orders
+                    <MdBorderColor style={iconStyle} /> Orders
                 </li>
 
                 <li onClick={() => navigate("/admin/users")}>
