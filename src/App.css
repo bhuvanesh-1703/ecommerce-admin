@@ -1,6 +1,5 @@
 body {
   margin: 0;
-
   background: #f4f6f9;
 }
 
@@ -25,8 +24,6 @@ body {
   margin-bottom: 20px;
   font-size: 22px;
   font-weight: bold;
- 
-
 }
 
 .sidebar ul {
