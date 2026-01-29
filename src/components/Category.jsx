@@ -2,8 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect,useCallback } from "react";
 import { GiCancel } from "react-icons/gi";
 
-
-
 const Category = () => {
   const [isCat, setIsCat] = useState(true);
   const [editCategoryId, setEditCategoryId] = useState(null);
