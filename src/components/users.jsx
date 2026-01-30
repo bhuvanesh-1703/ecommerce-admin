@@ -151,8 +151,7 @@ const Users = () => {
                   <td>{user.email}</td>
                   <td>{user.phonenumber}</td>
                   <td>{user.role}</td>
-                  <td>{user.status}</td>
-                  <td>{user.password}</td>
+                  <td>{user.status.toUpperCase().slice(0, 1) + user.status.slice(1)}</td>
                   <td>
                     <button
                       style={{ backgroundColor: "#218332" }}

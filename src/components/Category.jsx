@@ -16,8 +16,6 @@ const Category = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [message, setMessage] = useState("");
 
-
-
   const getCategory = async () => {
     try {
       const response = await axios.get("http://localhost:5100/admin/category");
@@ -83,7 +81,6 @@ const Category = () => {
     }
   };
 
-
   const handleEditCategory = (cat) => {
     setIsEditMode(true);
     setEditCategoryId(cat._id);
@@ -119,8 +116,6 @@ const Category = () => {
   const handleChange = (e) => {
     setCategory({ ...category, [e.target.name]: e.target.value });
   };
-
-
 
   const filteredCategories = showCat.filter((cat) =>
     cat.categoryname.toLowerCase().includes(searchTerm.toLowerCase())
