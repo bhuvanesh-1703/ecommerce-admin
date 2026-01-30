@@ -70,7 +70,7 @@ const Products = () => {
                     stock: "",
                     status: "",
                     description: "",
-                    productdetails:""
+                    productdetails: ""
                 })
                 alert("Product Updated Successfully")
 
@@ -89,8 +89,8 @@ const Products = () => {
                 formData.append("product", JSON.stringify(product))
 
                 const response = await axios.post("http://localhost:5100/admin/products", formData, {
-                    header:{
-                        "Content-Type":'multipart/form-data'
+                    header: {
+                        "Content-Type": 'multipart/form-data'
                     }
                 });
 
@@ -104,7 +104,7 @@ const Products = () => {
                     stock: "",
                     status: "",
                     description: "",
-                    productdetails:""
+                    productdetails: ""
                 })
                 setImage(null)
                 alert("Product Added Successfully")
@@ -162,7 +162,7 @@ const Products = () => {
 
                     <input
                         type="file" onChange={(e) => setImage(e.target.files[0])}
-                        name="image" 
+                        name="image"
                     />
 
 
@@ -222,7 +222,7 @@ const Products = () => {
                         value={product.productdetails}
                         onChange={handleChange}
                     />
-                 
+
 
                     <button onClick={handleSubmit}>
                         {isEditMode ? 'Edit Product' : 'Add Product'}
@@ -254,7 +254,7 @@ const Products = () => {
                                         <img
                                             src={`http://localhost:5100/uploads/${p.image}`}
                                             alt={p.productname}
-                                            style={{  objectFit: "cover" }}
+                                            style={{ objectFit: "cover" }}
                                         />
                                     </td>
                                     <td>{p.productname}</td>
@@ -264,8 +264,8 @@ const Products = () => {
                                     <td>{p.status}</td>
                                     <td>{p.description}</td>
                                     <td>
-                                        <button onClick={() => handleEditProduct(p)}> <FaEdit /> Edit</button>
-                                        <button style={{ backgroundColor: "#FF3838", marginLeft: "5px" }} onClick={() => handleDeleteProduct(p._id)}> <MdDeleteForever /> Delete</button>
+                                        <button style={{background:"#219cc9"}} onClick={() => handleEditProduct(p)}> <FaEdit /></button>
+                                        <button style={{ backgroundColor: "#FF3838", marginLeft: "5px" }} onClick={() => handleDeleteProduct(p._id)}> <MdDeleteForever /></button>
                                     </td>
                                 </tr>
                             ))}

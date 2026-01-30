@@ -1,0 +1,26 @@
+/* Order Component Specific Styles */
+
+/* Target the wrapper for the Order table specifically */
+.order-container .table-responsive {
+    overflow-x: visible !important;
+    /* Remove scroll type */
+    margin-right: 80px;
+    /* Add margin right as requested */
+}
+
+/* Ensure the table fits or behaves as desired */
+.order-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface);
+    margin-right: 20%;
+}
+
+/* Ensure consistent cell padding */
+.order-container td,
+.order-container th {
+    padding: 16px;
+    vertical-align: middle;
+}

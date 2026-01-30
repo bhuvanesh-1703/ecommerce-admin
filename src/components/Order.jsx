@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MdDeleteForever } from "react-icons/md";
+import "./Order.css";
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
@@ -32,7 +33,7 @@ const Order = () => {
   }, []);
 
   return (
-    <div style={{ marginLeft: "25%", marginTop: "5%" }}>
+    <div className="main-content order-container">
       <h2>Orders</h2>
       <table border="1" cellPadding="10">
         <thead>
@@ -69,7 +70,7 @@ const Order = () => {
               <td>{new Date(order.date).toLocaleString()}</td>
               <td>{order.status}</td>
               <td>{order.paymentMethod}</td>
-              <td><MdDeleteForever size={25} style={{ color: "red", cursor: "pointer" }} onClick={() => deleteOrder(order._id)} /></td>
+              <td><MdDeleteForever size={25} style={{color:"red",cursor:"pointer"}}/></td>
             </tr>
           ))}
         </tbody>
