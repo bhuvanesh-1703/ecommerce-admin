@@ -16,7 +16,7 @@ const Sidebar = () => {
     const navigate = useNavigate()
 
     return (
-        <div className="sidebar">
+        <div className="sidebar" style={{backgroundColor:"#F3F4F4"}}>
             <h2>Ours</h2>
 
 

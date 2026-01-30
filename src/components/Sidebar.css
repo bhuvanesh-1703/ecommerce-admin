@@ -2,7 +2,7 @@
 .sidebar {
     width: var(--sidebar-width);
     height: 100vh;
-    background-color: var(--bg-surface);
+    background-color:blue;
     position: fixed;
     left: 0;
     top: 0;

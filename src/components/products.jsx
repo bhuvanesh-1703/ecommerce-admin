@@ -262,7 +262,7 @@ const Products = () => {
                                     <td>₹{p.price}</td>
                                     <td>{p.stock}</td>
                                     <td>{p.status}</td>
-                                    <td>{p.description}</td>
+                                    <td>{p.description.length > 20 ? p.description.slice(0, 20) + "..." : p.description}</td>
                                     <td>
                                         <button style={{background:"#219cc9"}} onClick={() => handleEditProduct(p)}> <FaEdit /></button>
                                         <button style={{ backgroundColor: "#FF3838", marginLeft: "5px" }} onClick={() => handleDeleteProduct(p._id)}> <MdDeleteForever /></button>
