@@ -143,7 +143,7 @@ const Category = () => {
       {isCat ? (
         <div className="main-content">
           <div className="table-responsive">
-            <table style={{ marginRight: "50%" }}>
+            <table >
               <thead>
                 <tr>
                   <th>S.No</th>

@@ -1,10 +1,13 @@
-/* =========================================
-   1. VARIABLES & RESET (LIGHT THEME)
-   ========================================= */
+body{
+   font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal
+}
 :root {
   /* Core Palette - Light Theme */
   --bg-body: #f1f5f9;
-  /* Slate 100 - Main Background */
+ 
   --bg-surface: #ffffff;
   /* White - Cards/Sidebar */
   --text-primary: #0f172a;
@@ -56,9 +59,6 @@ ul {
   margin: 0;
 }
 
-/* =========================================
-   2. SIDEBAR
-   ========================================= */
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
@@ -108,7 +108,7 @@ ul {
 
 .sidebar-menu li.active {
   background-color: #eff6ff;
-  /* Blue 50 */
+
   color: var(--brand-primary);
 }
 
@@ -118,9 +118,6 @@ ul {
   opacity: 0.8;
 }
 
-/* =========================================
-   3. HEADER
-   ========================================= */
 .header {
   height: var(--header-height);
   background-color: var(--bg-surface);
@@ -129,14 +126,13 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Adjusted for better spacing */
+
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 900;
 }
 
-/* Breadcrumb or Page Title Placeholder */
 .header h1 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -144,7 +140,6 @@ ul {
   margin: 0;
 }
 
-/* Admin Profile / Actions */
 .header h3.add-btn {
   background: transparent;
   color: var(--text-primary);
@@ -163,35 +158,34 @@ ul {
   background-color: var(--bg-body);
 }
 
-/* =========================================
-   4. LAYOUT CONTAINERS
-   ========================================= */
 .main-content,
 .users-container,
 .category-container,
 .product-input,
 .add-users,
-.table-responsive {
+.tables-responsive
+{
   margin-left: var(--sidebar-width);
-  /* CRITICAL for layout */
+
   padding: 32px 40px;
   min-height: calc(100vh - var(--header-height));
 }
 
-/* Action Bar (Search + Add Button) */
+.table-responsive {
+  margin-left: 5%;
+   padding: 32px 40px;
+  min-height: calc(100vh - var(--header-height));
+}
+
 .users-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0;
-  /* Reset */
   padding-bottom: 0;
   min-height: auto;
 }
 
-/* =========================================
-   5. CARDS (Dashboard)
-   ========================================= */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -229,9 +223,6 @@ ul {
   margin: 0;
 }
 
-/* =========================================
-   6. TABLES - PROFESSIONAL LOOK
-   ========================================= */
 table {
   width: 100%;
   background: var(--bg-surface);
@@ -246,7 +237,7 @@ table {
 
 thead {
   background-color: #f8fafc;
-  /* Slate 50 */
+
 }
 
 thead th {
@@ -255,12 +246,12 @@ thead th {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-secondary) !important;
-  /* Force override manual styles */
+
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-bottom: 1px solid var(--border-color);
   background: transparent !important;
-  /* Override inline styles */
+
 }
 
 tbody td {
@@ -287,9 +278,6 @@ table img {
   object-fit: cover;
 }
 
-/* =========================================
-   7. PRO FORMS
-   ========================================= */
 form {
   background: var(--bg-surface);
   padding: 40px;
@@ -314,24 +302,23 @@ select,
 textarea {
   width: 100%;
   padding: 10px 14px;
-  /* Reduced padding */
+ 
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
   background-color: white;
   font-size: 0.9rem;
-  /* Slightly smaller font */
+ 
   color: var(--text-primary);
   transition: all 0.2s;
   outline: none;
 }
 
-/* Specific Search Bar Styling */
+
 .users-container input[type="search"] {
   max-width: 300px;
-  /* Reduced width */
+
   padding: 8px 16px;
   border-radius: 99px;
-  /* Pill shape for search */
   background-color: #f1f5f9;
   border: 1px solid transparent;
 }
@@ -340,7 +327,7 @@ textarea {
   background-color: white;
   border-color: var(--brand-primary);
   width: 320px;
-  /* Slight expansion on focus */
+
 }
 
 input:focus,
@@ -354,27 +341,23 @@ input[type="file"] {
   padding: 10px;
 }
 
-/* =========================================
-   8. BUTTONS
-   ========================================= */
 button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  /* Slightly reduced padding */
+ 
   border-radius: 6px;
-  /* Slightly tighter radius */
+
   font-weight: 600;
   font-size: 0.85rem;
-  /* More compact font */
+  
   border: none;
   cursor: pointer;
   transition: all 0.2s;
   gap: 8px;
 }
 
-/* Primary Button (Add New, Submit) */
 .btn-users,
 .add-btn,
 button[type="submit"] {
@@ -390,7 +373,7 @@ button[type="submit"]:hover {
   box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
 }
 
-/* Destructive Button */
+
 button.delete-btn,
 button[style*="red"],
 button[style*="#fa1837ff"] {
@@ -405,7 +388,7 @@ button.delete-btn:hover {
   color: white !important;
 }
 
-/* Neutral/Edit Button */
+
 button.edit-btn,
 button:not([class]):not([type=submit]) {
   background-color: white;
