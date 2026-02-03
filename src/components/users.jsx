@@ -146,7 +146,7 @@ const Users = () => {
               {userShow.map((user, index) => (
                 <tr key={user._id || index}>
                   <td>{index + 1}</td>
-                  <td>{user.username}</td>
+                  <td>{user.username.toUpperCase()}</td>
                   <td>{user.email}</td>
                   <td>{user.phonenumber}</td>
                   <td>{user.role}</td>
