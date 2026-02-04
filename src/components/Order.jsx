@@ -8,10 +8,12 @@ const Order = () => {
 
   const getOrder = async () => {
     try {
-      const usedata= JSON.parse(localStorage.getItem('userId'))
-      console.log('userId',usedata)
+      const usedata = JSON.parse(localStorage.getItem('userId'))
+      console.log('userId', usedata)
       const response = await axios.get("http://localhost:5100/admin/order");
       setOrders(response.data.data);
+      console.log(response.data.data);
+      
     } catch (error) {
       console.log('Failed to fetch orders', error);
     }
@@ -21,7 +23,7 @@ const Order = () => {
     try {
       const response = await axios.delete(`http://localhost:5100/admin/order/${orderId}`);
       if (response.data.success) {
-        getOrder(); // Refresh the orders list after deletion
+        getOrder();
       }
     } catch (error) {
       console.log('Failed to delete order', error);
@@ -58,6 +60,11 @@ const Order = () => {
               <td>
                 {order.products.map((product, i) => (
                   <div key={i}>
+                    <img
+                      src={`http://localhost:5100/uploads/${product.productId?.image}`}
+                      alt={product.productId?.productname}
+                      style={{ objectFit: "cover" }}
+                    />
                     {product.productId?.productname} (Qty: {product.quantity})
                   </div>
                 ))}
@@ -70,7 +77,7 @@ const Order = () => {
               <td>{new Date(order.date).toLocaleString()}</td>
               <td>{order.status}</td>
               <td>{order.paymentMethod}</td>
-              <td><MdDeleteForever size={25} style={{color:"red",cursor:"pointer"}}/></td>
+              <td><MdDeleteForever size={25} style={{ color: "red", cursor: "pointer" }} /></td>
             </tr>
           ))}
         </tbody>
