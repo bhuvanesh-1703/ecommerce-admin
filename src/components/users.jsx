@@ -138,7 +138,6 @@ const Users = () => {
                 <th>Phone Number</th>
                 <th>Role</th>
                 <th>Status</th>
-                
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
