@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect, useCallback } from "react";
 import { GiCancel } from "react-icons/gi";
+import Swal from 'sweetalert2';
 
 const Category = () => {
   const [isCat, setIsCat] = useState(true);
@@ -51,7 +52,13 @@ const Category = () => {
           },
         );
         setMessage("Category updated successfully");
-        alert("update successfully");
+        Swal.fire({
+          icon: 'success',
+          title: 'Updated!',
+          text: 'Category Updated Successfully',
+          timer: 2000,
+          showConfirmButton: false
+        });
       } else {
         await axios.post("http://localhost:5100/admin/category", formData, {
           header: {
@@ -59,7 +66,13 @@ const Category = () => {
           },
         });
         setMessage("Category added successfully");
-        alert("Category Added successfully");
+        Swal.fire({
+          icon: 'success',
+          title: 'Added!',
+          text: 'Category Added Successfully',
+          timer: 2000,
+          showConfirmButton: false
+        });
       }
       getCategory();
       setIsCat(true);
@@ -73,7 +86,12 @@ const Category = () => {
       });
     } catch (err) {
       console.log(err);
-      setMessage("Error  saving category");
+      setMessage("Error saving category");
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Error saving category',
+      });
     }
   };
 
@@ -91,19 +109,38 @@ const Category = () => {
   };
 
   const deleteCategory = async (id) => {
-    const confirmDelete = window.confirm("Do you want to delete the category?");
-    if (confirmDelete) {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to delete the category?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
+
+    if (result.isConfirmed) {
       try {
         const res = await axios.delete(
           `http://localhost:5100/admin/category/${id}`,
         );
         if (res.data.success) {
+          Swal.fire(
+            'Deleted!',
+            'Category has been deleted.',
+            'success'
+          );
           getCategory();
           setMessage("Category deleted successfully ");
         }
       } catch (err) {
         console.log("Error deleting category", err);
         setMessage("Error deleting category ");
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Error deleting category',
+        });
       }
     }
   };

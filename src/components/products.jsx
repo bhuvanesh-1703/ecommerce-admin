@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-
 import { GiCancel } from "react-icons/gi";
+import Swal from 'sweetalert2';
 const Products = () => {
     const [isPro, setIsPro] = useState(false)
     const [product, setProduct] = useState({
@@ -13,7 +13,7 @@ const Products = () => {
         stock: "",
         status: "",
         description: "",
-        productdetails:""
+        productdetails: ""
     });
 
     const [showProduct, setShowProduct] = useState([]);
@@ -72,10 +72,21 @@ const Products = () => {
                     description: "",
                     productdetails: ""
                 })
-                alert("Product Updated Successfully")
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Updated!',
+                    text: 'Product Updated Successfully',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
 
             } catch (error) {
                 console.log("Failed to update product", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Failed to update product',
+                });
             }
         } else {
 
@@ -107,20 +118,54 @@ const Products = () => {
                     productdetails: ""
                 })
                 setImage(null)
-                alert("Product Added Successfully")
+                setImage(null)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added!',
+                    text: 'Product Added Successfully',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
 
             } catch (error) {
                 console.log("Failed to save product", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Failed to save product',
+                });
             }
         }
     };
 
     const handleDeleteProduct = async (id) => {
-        try {
-            await axios.delete(`http://localhost:5100/admin/products/${id}`);
-            getProduct();
-        } catch (error) {
-            console.log("Failed to delete product", error);
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        });
+
+        if (result.isConfirmed) {
+            try {
+                await axios.delete(`http://localhost:5100/admin/products/${id}`);
+                Swal.fire(
+                    'Deleted!',
+                    'The product has been deleted.',
+                    'success'
+                );
+                getProduct();
+            } catch (error) {
+                console.log("Failed to delete product", error);
+                Swal.fire(
+                    'Error!',
+                    'Failed to delete product.',
+                    'error'
+                );
+            }
         }
     };
 
@@ -264,7 +309,7 @@ const Products = () => {
                                     <td>{p.status}</td>
                                     <td>{p.description.length > 20 ? p.description.slice(0, 20) + "..." : p.description}</td>
                                     <td>
-                                        <button style={{background:"#219cc9"}} onClick={() => handleEditProduct(p)}> <FaEdit /></button>
+                                        <button style={{ background: "#219cc9" }} onClick={() => handleEditProduct(p)}> <FaEdit /></button>
                                         <button style={{ backgroundColor: "#FF3838", marginLeft: "5px" }} onClick={() => handleDeleteProduct(p._id)}> <MdDeleteForever /></button>
                                     </td>
                                 </tr>

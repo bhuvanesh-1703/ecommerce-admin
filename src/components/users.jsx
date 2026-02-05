@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { GiCancel } from "react-icons/gi";
+import Swal from 'sweetalert2';
 
 const Users = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -38,16 +39,38 @@ const Users = () => {
           status: "",
           password: ""
         });
-        alert("Updated Successfully")
+        Swal.fire({
+          icon: 'success',
+          title: 'Updated!',
+          text: 'User Updated Successfully',
+          timer: 2000,
+          showConfirmButton: false
+        });
       } catch (err) {
         console.log("Error updating user:", err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'Failed to update user',
+        });
       }
     } else {
       try {
         if (!user.username || !user.email || !user.phonenumber || !user.role || !user.password) {
-          return alert("All fields are required");
+          return Swal.fire({
+            icon: 'warning',
+            title: 'Required!',
+            text: 'All fields are required',
+          });
         }
         await axios.post("http://localhost:5100/admin/users", user);
+        Swal.fire({
+          icon: 'success',
+          title: 'Added!',
+          text: 'User Added Successfully',
+          timer: 2000,
+          showConfirmButton: false
+        });
         getUsers();
         setIsLogin(true);
         setUser({
@@ -93,11 +116,33 @@ const Users = () => {
   }, []);
 
   const deleteUsers = async (id) => {
-    const conf = window.confirm("Do you want to delete this user?");
-    if (conf) {
-      await axios.delete(`http://localhost:5100/admin/users/${id}`);
-      getUsers();
-      console.log("User deleted successfully");
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to delete this user?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await axios.delete(`http://localhost:5100/admin/users/${id}`);
+        Swal.fire(
+          'Deleted!',
+          'User has been deleted.',
+          'success'
+        );
+        getUsers();
+      } catch (err) {
+        console.log("Error deleting user", err);
+        Swal.fire(
+          'Error!',
+          'Failed to delete user.',
+          'error'
+        );
+      }
     } else {
       console.log("Delete cancelled");
     }
