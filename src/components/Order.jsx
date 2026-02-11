@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MdDeleteForever } from "react-icons/md";
-import Swal from 'sweetalert2';
+
 import "./Order.css";
 
 const Order = () => {
